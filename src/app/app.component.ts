@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testproject';
+
+  receivedData:String ;
+
+  eventReceiver(value:String){
+    this.receivedData = value;
+  }
 }
