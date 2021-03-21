@@ -1,16 +1,28 @@
 <div class="container">
-    <div class="card">
-        <div class="card-header">Dummy Data's</div>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">Dummy Data's Component</div>
+                <button class="btn btn-success">Get List</button>
+                <div class="card-body">
+                    <!-- <span *ngIf="singleData">
+                        {{singleData}}
+                    </span> -->
+                    <ul *ngIf="multipleData">
+                        <li *ngFor="let item of multipleData">
+                        <span >
+                            UserId: {{item.userId}} 
+                        </span>
+                        <span>
+                            Id: {{item.id}}
+                        </span>
+                        <span>
+                            Title: {{item.title}}
+                        </span>
+                    </li>
+                    </ul>
+                
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <span *ngIf="singleData">
-            {{singleData}}
-        </span>
-        <span *ngIf="multipleData">
-            {{multipleData}}
-        </span>
-  
-  <!-- singleDataErrorMessage: any;
-  multipleDataErrorMessage:any; -->
-    </div>
-</div>

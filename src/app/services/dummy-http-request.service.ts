@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
-import { promise } from 'selenium-webdriver';
-import { resolve } from 'node:path';
-import { rejects } from 'node:assert';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +11,11 @@ export class DummyHttpRequestService {
   ) { }
 
   getListOfAlldata(){
-   return this._http.get("http://dummy.restapiexample.com/api/v1/employees");
+   return this._http.get("https://jsonplaceholder.typicode.com/albums");
   }
   getSingleData(Id:String){
     let data1;
-    this._http.get("http://dummy.restapiexample.com/api/v1/employees/"+Id)
+    this._http.get('https://jsonplaceholder.typicode.com/todos/'+Id)
     .subscribe(data => data1 = data);
 
     if(data1){

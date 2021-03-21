@@ -6,14 +6,18 @@
     </div>
     <div class="col-md-6">
       <app-dummy-data></app-dummy-data>
+      <div class="row" class="header">
+        <span *ngIf="receivedData">
+          {{receivedData}}
+        </span>
+      </div>
+      <div class="row">
+        <div class="col">
+        <app-msg-sender></app-msg-sender>
+        <app-msg-receiver></app-msg-receiver>
+      </div>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-<span *ngIf="receivedData">
-  {{receivedData}}
-</span>

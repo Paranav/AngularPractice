@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../services/customvalidation.service';
 
@@ -8,12 +8,12 @@ import { CustomvalidationService } from '../services/customvalidation.service';
   styleUrls: ['./formvalidation.component.css']
 })
 export class FormvalidationComponent implements OnInit {
-  registerForm:FormGroup;
+  registerForm: FormGroup;
   submitted = false;
 
   @Output() newItemEvent = new EventEmitter<string>();
 
-  addNewItem(value:string){
+  addNewItem(value: string) {
     this.newItemEvent.emit(value);
   }
 
@@ -25,18 +25,18 @@ export class FormvalidationComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
-      email:['', [Validators.required, Validators.email]],
-      username:['',[Validators.required], this.customValidator.userNameValidator.bind(this.customValidator)],
-      password:['',Validators.compose([Validators.required, this.customValidator.patternValidator()])],
-      confirmpassword:['', Validators.required]
-     },
-    {
-      validator: this.customValidator.MatchPassword('password', 'confirmpassword')
-    }
-    
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required], this.customValidator.userNameValidator.bind(this.customValidator)],
+      password: ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
+      confirmpassword: ['', Validators.required]
+    },
+      {
+        validator: this.customValidator.MatchPassword('password', 'confirmpassword')
+      }
+
     )
   }
- 
+
   get registerFormControl() {
     return this.registerForm.controls;
   }
